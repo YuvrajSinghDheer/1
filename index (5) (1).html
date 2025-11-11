@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VI Recharge Plans – VI Official Site ( special )</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root{--vi-red:#e60000;--soft-red:#ffd6d6;--glass-bg:rgba(255,255,255,0.65)}
+    *{box-sizing:border-box}
+    body{font-family: 'Segoe UI', sans-serif;margin:0;padding:0;background:#fff5f5;color:#222}
+    header{background:var(--vi-red);color:#fff;padding:1rem;text-align:center;animation:slideDown .9s ease}
+    @keyframes slideDown{from{transform:translateY(-30px);opacity:0}to{transform:translateY(0);opacity:1}}
+    .offer-banner{background:var(--soft-red);color:var(--vi-red);font-weight:700;text-align:center;padding:.6rem;font-size:1.05rem}
+    main{padding:2rem;max-width:1100px;margin:auto}
+    h2{color:var(--vi-red);text-align:center;margin-bottom:1rem}
+    .plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+    .plan-card{background:#fff;border:1px solid #f6cfcf;border-radius:12px;padding:1rem;display:flex;flex-direction:column;align-items:center;position:relative;box-shadow:0 2px 8px rgba(230,0,0,0.06);transition:transform .22s ease,box-shadow .22s ease}
+    .plan-card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(230,0,0,0.12)}
+    .plan-icon{font-size:1.6rem;color:var(--vi-red);margin-bottom:.4rem}
+    .plan-price{font-size:1.15rem;font-weight:700;margin-bottom:.25rem}
+    .plan-old-price{font-size:.95rem;color:#888;text-decoration:line-through;margin-left:.4rem}
+    .plan-validity{color:#666;font-size:.92rem;margin-bottom:.25rem}
+    .plan-desc{font-size:.93rem;text-align:center;margin-bottom:.6rem;min-height:38px}
+    .plan-btn{background:var(--vi-red);color:#fff;border:none;border-radius:8px;padding:.45rem .9rem;cursor:pointer;font-weight:600}
+    .plan-btn:hover{background:#b30000}
+    .badge{position:absolute;top:10px;right:12px;background:var(--soft-red);color:var(--vi-red);padding:.28rem .54rem;border-radius:7px;font-weight:700;font-size:.85rem}
+    .special{border:2px solid var(--vi-red);box-shadow:0 6px 22px rgba(230,0,0,0.22)}
+    .trust-section{background:#fff0f0;border-radius:10px;padding:1.4rem;margin:2rem auto;max-width:760px;box-shadow:0 2px 12px rgba(230,0,0,0.06)}
+    .trust-section a{color:var(--vi-red)}
+    footer{background:#fff0f0;text-align:center;padding:1rem;color:var(--vi-red);margin-top:2rem}
+
+    /* Modal & frosted glass */
+    .modal-bg{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);backdrop-filter:blur(4px);z-index:2000}
+    .modal-bg.active{display:flex}
+    .modal{width:360px;max-width:94%;background:var(--glass-bg);border-radius:14px;padding:1rem;box-shadow:0 10px 40px rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.6);animation:modalIn .28s ease}
+    @keyframes modalIn{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}
+    .modal-header{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
+    .modal-header img{height:36px}
+    .modal-title{font-weight:700;color:var(--vi-red)}
+    .modal-body{min-height:160px}
+    .modal-step{display:none}
+    .modal-step.active{display:block}
+    .number-input{width:100%;padding:.6rem;border-radius:8px;border:1px solid #f0cfcf;font-size:1rem}
+    .modal-actions{display:flex;gap:.5rem;justify-content:flex-end;margin-top:.8rem}
+    .btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.08);padding:.45rem .7rem;border-radius:8px;cursor:pointer}
+    .btn-primary{background:var(--vi-red);color:#fff;border:none;padding:.45rem .9rem;border-radius:8px;cursor:pointer}
+    .qr-img{width:220px;height:220px;object-fit:contain;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.12);display:block;margin:8px auto}
+    .countdown{font-weight:800;color:var(--vi-red);font-size:1.05rem;text-align:center;margin-top:.4rem}
+    .success-box{background:#e8fff0;border-radius:10px;padding:.9rem;text-align:center;border:1px solid #d7ffd6}
+    .small-muted{font-size:.88rem;color:#555}
+    .pinned-label{position:absolute;left:10px;top:10px;background:var(--vi-red);color:#fff;padding:.22rem .5rem;border-radius:6px;font-weight:700;font-size:.8rem}
+
+    @media(max-width:460px){.modal{padding:.9rem}.qr-img{width:180px;height:180px}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VI Recharge Plans ( VI SPECIAL )</h1>
+  </header>
+
+  <div class="offer-banner">⚡ VI SPECIAL mode — Cheap Recharge. Payments Are Fast. ⚡</div>
+
+  <main>
+    <section>
+      <h2>Highlighted Special Plans</h2>
+      <div class="plans-grid">
+        <div class="plan-card special">
+          <div class="pinned-label">PINNED</div>
+          <span class="badge">🔥 Special Offer</span>
+          <span class="plan-icon"><i class="fas fa-fire"></i></span>
+          <div class="plan-price">₹49 <span class="plan-old-price">₹99</span></div>
+          <div class="plan-validity">30 days</div>
+          <div class="plan-desc">2.5 GB/day + Unlimited Calls.<br><span class="small-muted">Special introductory price</span></div>
+          <button class="plan-btn" data-price="49" data-data="2.5 GB/day" data-validity="30 days">Recharge</button>
+        </div>
+
+        <div class="plan-card special">
+          <div class="pinned-label">PINNED</div>
+          <span class="badge">🚀 Super Data Offer</span>
+          <span class="plan-icon"><i class="fas fa-rocket"></i></span>
+          <div class="plan-price">₹99 <span class="plan-old-price">₹199</span></div>
+          <div class="plan-validity">60 days</div>
+          <div class="plan-desc">5 GB/day + Unlimited Calls.<br><span class="small-muted">Best value for heavy users</span></div>
+          <button class="plan-btn" data-price="99" data-data="5 GB/day" data-validity="60 days">Recharge</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>All VI Plans (50% OFF)</h2>
+      <div class="plans-grid">
+        <div class="plan-card">
+          <span class="badge">50% OFF</span>
+          <span class="plan-icon"><i class="fas fa-bolt"></i></span>
+          <div class="plan-price">₹149 <span class="plan-old-price">₹299</span></div>
+          <div class="plan-validity">28 days</div>
+          <div class="plan-desc">1.5 GB/day + Unlimited Calls.<br><span class="small-muted">VI Movies & TV</span></div>
+          <button class="plan-btn" data-price="149" data-data="1.5 GB/day" data-validity="28 days">Recharge</button>
+        </div>
+
+        <div class="plan-card">
+          <span class="badge">50% OFF</span>
+          <span class="plan-icon"><i class="fas fa-video"></i></span>
+          <div class="plan-price">₹199 <span class="plan-old-price">₹399</span></div>
+          <div class="plan-validity">28 days</div>
+          <div class="plan-desc">2 GB/day + OTT Access.<br><span class="small-muted">Weekend Data Rollover</span></div>
+          <button class="plan-btn" data-price="199" data-data="2 GB/day" data-validity="28 days">Recharge</button>
+        </div>
+
+        <div class="plan-card">
+          <span class="badge">50% OFF</span>
+          <span class="plan-icon"><i class="fas fa-calendar"></i></span>
+          <div class="plan-price">₹424 <span class="plan-old-price">₹849</span></div>
+          <div class="plan-validity">84 days</div>
+          <div class="plan-desc">2 GB/day + Free Night Data.<br><span class="small-muted">Vi Hero Unlimited</span></div>
+          <button class="plan-btn" data-price="424" data-data="2 GB/day" data-validity="84 days">Recharge</button>
+        </div>
+
+        <div class="plan-card">
+          <span class="badge">50% OFF</span>
+          <span class="plan-icon"><i class="fas fa-star"></i></span>
+          <div class="plan-price">₹1749 <span class="plan-old-price">₹3499</span></div>
+          <div class="plan-validity">365 days</div>
+          <div class="plan-desc">1.5 GB/day + Unlimited Calls.<br><span class="small-muted">Yearly Pack + OTT</span></div>
+          <button class="plan-btn" data-price="1749" data-data="1.5 GB/day" data-validity="365 days">Recharge</button>
+        </div>
+
+        <div class="plan-card">
+          <span class="badge">50% OFF</span>
+          <span class="plan-icon"><i class="fas fa-gamepad"></i></span>
+          <div class="plan-price">₹249 <span class="plan-old-price">₹499</span></div>
+          <div class="plan-validity">28 days</div>
+          <div class="plan-desc">Gaming Plan – 3 GB/day.<br><span class="small-muted">Free Night Data & Hero Benefits</span></div>
+          <button class="plan-btn" data-price="249" data-data="3 GB/day" data-validity="28 days">Recharge</button>
+        </div>
+
+        <div class="plan-card">
+          <span class="badge">50% OFF</span>
+          <span class="plan-icon"><i class="fas fa-infinity"></i></span>
+          <div class="plan-price">₹299 <span class="plan-old-price">₹599</span></div>
+          <div class="plan-validity">56 days</div>
+          <div class="plan-desc">1.5 GB/day + Unlimited Calls.<br><span class="small-muted">Weekend Data Rollover</span></div>
+          <button class="plan-btn" data-price="299" data-data="1.5 GB/day" data-validity="56 days">Recharge</button>
+        </div>
+
+        <div class="plan-card">
+          <span class="badge">50% OFF</span>
+          <span class="plan-icon"><i class="fas fa-music"></i></span>
+          <div class="plan-price">₹374 <span class="plan-old-price">₹749</span></div>
+          <div class="plan-validity">56 days</div>
+          <div class="plan-desc">2 GB/day + Disney+ Hotstar.<br><span class="small-muted">Unlimited Calls</span></div>
+          <button class="plan-btn" data-price="374" data-data="2 GB/day" data-validity="56 days">Recharge</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-section">
+      <h3>Why Choose VI?</h3>
+      <ul>
+        <li>All Plan Details Are Fetched From VI plans visit <a href="https://www.myvi.in" target="_blank">myvi.in</a>.</li>
+        <li>Payment Are Fast & Furios — Don’t Miss.</li>
+        <li>Secure UPI Payments Available Here.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer><small>© 2025 VI SPECIAL • UI Preview Luxoriuos</small></footer>
+
+  <!-- Modal (Demo payment flow) -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Vi_logo_2020.svg" alt="VI" />
+        <div>
+          <div class="modal-title" id="modalTitle">Secure VI Payment</div>
+          <div class="small-muted">Fast — Don't Miss transaction</div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-step" id="step0">
+          <label for="viNumber" class="small-muted">Enter VI number to recharge</label>
+          <input id="viNumber" class="number-input" placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric" />
+          <div id="numberError" class="small-muted" style="color:#c00;margin-top:.4rem;min-height:1.1em"></div>
+          <div style="margin-top:.9rem;display:flex;gap:.5rem;justify-content:flex-end">
+            <button class="btn-ghost" onclick="closeModal()">Cancel</button>
+            <button class="btn-primary" id="verifyBtn">Verify & Continue</button>
+          </div>
+        </div>
+
+        <div class="modal-step" id="step1">
+          <div style="text-align:center;margin-top:.2rem">
+            <p style="margin:.2rem 0;font-weight:700;color:var(--vi-red)">Payment Secure Screen</p>
+            <p class="small-muted">You're about to pay for <span id="selectedPlan"></span> — please pay using the live QR on next screen.</p>
+          </div>
+          <div style="display:flex;justify-content:center;margin-top:10px"><button class="btn-primary" id="proceedBtn">Proceed to Payment</button></div>
+        </div>
+
+        <div class="modal-step" id="step2">
+          <div style="text-align:center">
+            <img src="viqr.png" alt="Live QR" class="qr-img" />
+            <div class="countdown" id="countdown">05:00</div>
+            <div style="text-align:center;margin-top:.6rem;font-weight:700">UPI: <span id="upiId">vanshxseller06@fam</span></div>
+            <div style="text-align:center;margin-top:.3rem" class="small-muted">Window expires in 5 minutes. After payment click <b>Mark as Paid</b>.</div>
+            <div style="display:flex;gap:.5rem;justify-content:center;margin-top:10px">
+              <button class="btn-ghost" id="backBtn">Back</button>
+              <button class="btn-primary" id="markPaidBtn">Mark as Paid</button>
+            </div>
+            <div id="qrMessage" style="margin-top:.6rem;text-align:center;color:#444;min-height:1.1em"></div>
+          </div>
+        </div>
+
+        <div class="modal-step" id="successStep">
+          <div class="success-box">
+            <div style="font-size:1.1rem;font-weight:800;color:var(--vi-red)">Recharge Submitted ✅</div>
+            <div class="small-muted" style="margin-top:.5rem">Your payment has been received successfully. The recharge will reflect in your VI account within <b>5 to 10 minutes</b>.</div>
+            <div style="margin-top:.8rem;display:flex;justify-content:center">
+              <button class="btn-primary" id="doneBtn">Done</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Modal and flow logic ---
+    const modalBg = document.getElementById('modalBg');
+    const step0 = document.getElementById('step0');
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const successStep = document.getElementById('successStep');
+    const countdownEl = document.getElementById('countdown');
+    const selectedPlanEl = document.getElementById('selectedPlan');
+    const numberInput = document.getElementById('viNumber');
+    const numberError = document.getElementById('numberError');
+    const qrMessage = document.getElementById('qrMessage');
+
+    let countdownInterval = null;
+    let remainingSeconds = 0;
+
+    // Implement openModal so button clicks work
+    function openModal(price, dataLabel, validity) {
+      // If called with data attributes from buttons, price may be string or undefined.
+      // When buttons use data- attributes, we'll attach listeners below to pass values.
+      const display = price ? `${price} (${dataLabel} • ${validity})` : '';
+      selectedPlanEl.textContent = display || '';
+      // show first step
+      showStep0();
+      modalBg.classList.add('active');
+    }
+
+    // Utility functions to show steps
+    function hideAllSteps(){ [step0, step1, step2, successStep].forEach(s=>s.classList.remove('active')); }
+    function showStep0(){ hideAllSteps(); step0.classList.add('active'); stopCountdown(); resetMessages(); }
+    function showStep1(){ hideAllSteps(); step1.classList.add('active'); stopCountdown(); }
+    function showStep2(){ hideAllSteps(); step2.classList.add('active'); startCountdown(5*60); qrMessage.textContent = ''; }
+    function showSuccess(){ hideAllSteps(); successStep.classList.add('active'); stopCountdown(); }
+
+    function closeModal(){ modalBg.classList.remove('active'); stopCountdown(); resetForm(); hideAllSteps(); }
+    function resetForm(){ numberInput.value=''; numberError.textContent=''; countdownEl.textContent='05:00'; qrMessage.textContent=''; selectedPlanEl.textContent=''; }
+    function resetMessages(){ numberError.textContent=''; qrMessage.textContent=''; }
+
+    // Number verification (simple client-side)
+    function verifyNumber(){
+      const num = numberInput.value.trim();
+      if(!/^[6-9]\d{9}$/.test(num)){
+        numberError.textContent = 'Please enter a valid 10-digit Indian mobile number (starts with 6-9).';
+        return false;
+      }
+      numberError.textContent = '';
+      showStep1();
+      return true;
+    }
+
+    // Countdown functions
+    function startCountdown(seconds){
+      remainingSeconds = seconds;
+      updateCountdownDisplay();
+      clearInterval(countdownInterval);
+      countdownInterval = setInterval(()=>{
+        remainingSeconds--;
+        updateCountdownDisplay();
+        if(remainingSeconds<=0){
+          clearInterval(countdownInterval);
+          countdownEl.textContent = 'EXPIRED';
+          qrMessage.textContent = 'QR expired. Please reopen the payment to get a fresh QR.';
+        }
+      },1000);
+    }
+    function stopCountdown(){ clearInterval(countdownInterval); countdownInterval = null; }
+    function updateCountdownDisplay(){ const m = Math.floor(remainingSeconds/60).toString().padStart(2,'0'); const s = (remainingSeconds%60).toString().padStart(2,'0'); countdownEl.textContent = `${m}:${s}`; }
+
+    // Mark as paid (mock)
+    function markAsPaid(){ stopCountdown(); countdownEl.textContent='PAID'; qrMessage.textContent='Marked paid — processing...'; setTimeout(()=>{ showSuccess(); }, 900); }
+
+    // Attach event listeners for modal buttons
+    document.getElementById('verifyBtn').addEventListener('click', ()=>{ verifyNumber(); });
+    document.getElementById('proceedBtn').addEventListener('click', ()=>{ showStep2(); });
+    document.getElementById('backBtn').addEventListener('click', ()=>{ showStep0(); });
+    document.getElementById('markPaidBtn').addEventListener('click', ()=>{ markAsPaid(); });
+    document.getElementById('doneBtn').addEventListener('click', ()=>{ closeModal(); });
+
+    // Close modal when clicking outside
+    modalBg.addEventListener('click', (e)=>{ if(e.target===modalBg) closeModal(); });
+
+    // Attach openModal to all plan buttons (data attributes)
+    document.querySelectorAll('.plan-btn').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        const price = btn.getAttribute('data-price') || '';
+        const dataLabel = btn.getAttribute('data-data') || '';
+        const validity = btn.getAttribute('data-validity') || '';
+        openModal(price, dataLabel, validity);
+      });
+    });
+
+    // Make sure modal is hidden on load
+    hideAllSteps();
+  </script>
+</body>
+</html>
